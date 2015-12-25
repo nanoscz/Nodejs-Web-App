@@ -1,0 +1,79 @@
+html {
+  height: 100%;
+}
+body{
+    height:100%;
+}
+.btn-default{
+    border:2px solid #2980b9;
+    border-radius:0px;
+    padding:13px 30px;
+    color:#2980b9;
+    font-weight:600;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active{
+    background:#2980b9;
+    color:#FFF;
+    border-color:#2980b9;
+}
+.btn-defaults{
+    border:2px solid #fff;
+    border-radius:0px;
+    padding:13px 35px;
+    color:#fff;
+    font-weight:600;
+}
+.btn-defaults:hover, .btn-defaults:focus, .btn-defaults:active{
+    background:#fff;
+    color:#2980b9;
+    border-color:#2980b9;
+}
+.form-control{
+    border-radius:0px;
+    height:50px;
+}
+.list-group-item:hover {
+    color:#2980b9;
+}
+.back{
+    position:relative;
+    top:38%;
+    font-size:8.5em;
+    color:#fff;
+    margin:10px;
+}
+.back:hover{
+    color:#2f2f2f;
+}
+@media only screen and (min-width : 992px) {
+    .fixed-left{
+        position:fixed;
+        height:100%;
+        left:0;
+    }
+    .fixed-lefts{
+        position:fixed;
+        height:100%;
+        left:0;
+    }
+    .fixed-right{
+        position:fixed;
+        height:100%;
+        right:0;
+    }
+}
+@media only screen and (max-height : 600px) and (min-width : 992px) {
+    .fixed-left{
+        overflow-y: scroll;
+    }
+}
+.form-control-feedback{
+    margin-top:18px;
+}
+.control-label{
+    margin-top:5px;
+}
+.morris-hover{position:absolute;z-index:1000}
+.morris-hover.morris-default-style{border-radius:10px;padding:6px;color:#666;background:rgba(255,255,255,0.8);border:solid 2px rgba(230,230,230,0.8);font-family:sans-serif;font-size:12px;text-align:center}
+.morris-hover.morris-default-style .morris-hover-row-label{font-weight:bold;margin:0.25em 0}
+.morris-hover.morris-default-style .morris-hover-point{white-space:nowrap;margin:0.1em 0}

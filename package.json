@@ -1,0 +1,15 @@
+{
+  "name": "soft-inzinerstvo",
+  "description": "Aplikacija sto ovozmozuva da imate kontrola vrz vasite kupeni proizvodi, da ja sledite potrosuvackata i cenata na istite.",
+  "author": "Trajche Roshkoski",
+  "private": false,
+  "dependencies": {
+    "express": "*",
+    "kerberos":"*",
+    "serve-favicon":"*",
+    "formidable":"*",
+    "cookie-session":"*",
+    "mongoose":"*",
+    "bcrypt":"*"
+  }
+}

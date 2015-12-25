@@ -1,0 +1,40 @@
+<% include partials/header.ejs %>
+<div class="col-md-6">
+    
+    
+    <div class="col-md-8 col-md-push-2" style="margin:24% 0px;">
+        <% if (message) { %>
+        <div class="alert alert-info" role="alert"><%= message %></div>
+        <% } %>
+
+        <form action="/" method="post" enctype="multipart/form-data">
+         <div class="form-group">
+            <label for="username">Корисничко име:</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Внеси корисничко име" autocomplete="off" />
+         </div>
+         <div class="form-group">
+            <label for="password">Лозинка:</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Внеси лозинка" />
+         </div>
+         <div class="checkbox">
+            <label>
+              <input type="checkbox" id="najava" name="najava"> Задржи ме најавен
+            </label>
+          </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-12 col-lg-6">
+            <input type="submit" class="btn btn-default btn-block" value="Најави се" /></div>
+            <div class="col-sm-6 col-md-12 col-lg-6">
+            <a href="/signup" class="btn btn-default btn-block">Креирај профил</a></div>
+        </div>
+
+        </form>
+
+    </div>
+      
+</div>      
+<div class="col-md-6 fixed-right hidden-xs hidden-sm" style="background-image:url('public/images/background.png'); background-attachment: fixed; background-size: cover;" align="center">
+        <div style="height:200px"></div>
+    </div>
+
+<% include partials/footer.ejs %>
