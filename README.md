@@ -1,5 +1,6 @@
-## Opis
+## Description
 
-Aplikacija napravena vo Node.js za predmetot Softversko inzinerstvo za web aplikacii. Mu ovozmozuva na korisnikot da dodava proizvodi koi gi kupil, da sledi kolku ima potroseno, cenite na proizvodite i vo koi prodavnici mozi da gi kupi istite proizvodi za poniska cena.
+I'm using Quagga.js library which is a barcode scanner library. So basicly the idea is to use the device camera to scan a product barcode. The user can either use the device's camera, and if there is no camera found, there is a drag and drop feature or upload form so the user can upload pictures of the barcode. 
+The idea behind the app is for each user to be able to quickly add purchased products to his profile and enter price for each product. He can get monthly, weekly reports about how much does he spent on products. Also he can view if any other user has purchased the same product, by what price and if he can find it somewhere else where its cheaper.
 
 http://web-app-decobt.c9users.io
