@@ -1,11 +1,8 @@
 <% include partials/header.ejs %>
+    <body onload="opcija('<%= product._id %>')">
 
-
-        <div class="col-md-3 fixed-left" style="background:#2980b9; padding-top:50px;" align="center">
-                <span class="fa-stack fa-5x">
-                  <i class="fa fa-circle fa-stack-2x" style="color:#fff"></i>
-                  <i class="fa fa-user fa-stack-1x" style="color:#2c3e50"></i>
-                </span>
+        <div class="col-md-3 fixed-left" style="background:#2c3e50; padding-top:50px;" align="center">
+                <img src="/public/images/user.png" class="img-responsive" />
                 <br/>
                 <h4 style="color:#fff">Корисник:</h4>
                 <h3 style="color:#ececec"><%= user.name+" "+user.surname %></h3>
@@ -33,10 +30,11 @@
           <div class="panel-body">
         <p><strong>Продукт: <%= product.name %></strong></p>
         <p><strong>Продавница: <%= product.prodavnica%></strong></p> 
+        <p><strong>Град: <%= product.grad%></strong></p> 
         <p><strong>Цена: <%= product.cena.toFixed(2) %> МКД</strong></p>
           </div>
           <div class="panel-footer">
-            <a href="/products/remove/<%= product._id %>" class="btn btn-danger"><i class="fa fa-trash"></i> Избриши Производ</a>
+            <a href="/products/remove/<%= product._id %>" class="btn btn-default-red"><i class="fa fa-trash"></i> Избриши Производ</a>
           </div>
         </div>
         
@@ -49,10 +47,7 @@
         <form action="" method="post" class="form-inline" onsubmit="return productvalidation();">
           <div class="form-group" id="name-group">
             <label class="sr-only" for="name">Производ</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Производ" value="<%= product.name %>" onkeyup="convertName()" list="datalist1" autocomplete="off">
-            <datalist id="datalist1">
-              
-            </datalist>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Производ" value="<%= product.name %>" onkeyup="convertName()" autocomplete="off">
             <div id="name-feedback"></div>
           </div>
           <div class="form-group" id="prodavnica-group">
@@ -60,13 +55,18 @@
             <input type="text" class="form-control" id="prodavnica" name="prodavnica" placeholder="Продавница" value="<%= product.prodavnica%>" onkeyup="convertProdavnica()" autocomplete="off">
             <div id="prodavnica-feedback"></div>
           </div>
+          <div class="form-group" id="grad-group">
+            <label class="sr-only" for="grad">Продавница</label>
+            <input type="text" class="form-control" id="grad" name="grad" placeholder="Град" value="<%= product.grad%>" onkeyup="convertGrad()" autocomplete="off">
+            <div id="grad-feedback"></div>
+          </div>
           <div class="form-group" id="cena-group">
             <label class="sr-only" for="cena">Цена</label>
             <input type="text" class="form-control" id="cena" name="cena" placeholder="Цена" value="<%= product.cena %>" autocomplete="off">
             <div id="cena-feedback"></div>
           </div>
-          
-          <button type="submit" class="btn btn-default ">Измени Производ</button>
+
+          <button type="submit" class="btn btn-default "><i class="fa fa-check fa-lg"></i></button>
           
         </form>
         </div>
@@ -75,7 +75,7 @@
         <br>
         <div class="panel panel-default">
           <div class="panel-heading">
-        <h4><i class="fa fa-shopping-basket"></i> Исти производи со пониска цена од твојата</h4>
+        <h4><i class="fa fa-list-ol"></i> Исти производи со пониска цена од твојата</h4>
           </div>
         <div class="panel-body">
         <% if (similarProducts.length>0) { %>
@@ -86,6 +86,7 @@
                     <th></th>
                     <th>Производ</th>
                     <th>Продавница</th>
+                    <th>Град</th>
                     <th>Цена</th>
                     <th>Разлика во цена</th>
                 </tr>
@@ -97,6 +98,7 @@
                 <td><%= i+1 %></td>
                 <td><%= similarProducts[i].name %></td>
                 <td><%= similarProducts[i].prodavnica %></td>
+                <td><%= similarProducts[i].grad %></td>
                 <td><%= similarProducts[i].cena %> МКД</td>
                 <td><%= (product.cena - similarProducts[i].cena).toFixed(2) %> МКД</td>
                 </tr>  
@@ -110,6 +112,24 @@
           </div>
         </div>
         
+        
+        <% if(similarProducts.length>0) { %>
+        <br>
+        
+        
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+        <h4><i class="fa fa-map"></i> Локации на сличните производите</h4>
+          </div>
+        <div class="panel-body">
+          <h5>Филтрирај ги локациите според цена на производот: <strong><span id="productPrice"></span></strong></h5>
+          <div style="padding:0px 10px"><div id="snap"></div></div>
+          <br>
+        <div id="map"></div>
+        </div>
+        </div>
+        <% } %>
         <hr/>
         <a href="/products/1" class="btn btn-default">Назад до профилот</a>
 

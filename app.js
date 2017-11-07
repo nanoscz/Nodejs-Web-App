@@ -6,7 +6,11 @@ var app = express();
 
 //connect to database
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://' + process.env.IP + '/myappDB');
+mongoose.connect('mongodb://admin:Camera300@ds249565.mlab.com:49565/nodejswebapp');
+var db = mongoose.connection;
+db.once('open', function() {
+  console.log("we're connected!");
+});
 
 //define where are the views and set view engine
 app.set('views', __dirname + '/views');
@@ -14,7 +18,7 @@ app.set('view engine', 'ejs');
 
 //define where are public files (css,js,images) and favicon
 app.use("/public", express.static('public'));
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
+app.use(favicon(__dirname + '/public/images/favi.ico'));
 
 app.use(cookieSession({
   name: 'session',
@@ -39,6 +43,10 @@ var gracefulExit = function() {
 process.on('SIGINT', gracefulExit).on('SIGTERM', gracefulExit);
 
 //define which ip and port the server should listen for requests
-app.listen(process.env.PORT, process.env.IP);
+var port = process.env.PORT || 8080;
+
+var listener = app.listen(port, function(){
+    console.log('Listening on port ' + listener.address().port); //Listening on port 8888
+});
 
 module.exports = app;
